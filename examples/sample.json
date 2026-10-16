@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 3,
+  "importedAt": "sample-v1",
+  "count": 1,
+  "articles": [
+    {
+      "id": "SAMPLE001",
+      "title": "サンプル集会",
+      "category": "イベント",
+      "body": "辞典の表示を確認するための架空の記事。",
+      "url": "",
+      "aliases": [],
+      "tags": [
+        "イベント"
+      ],
+      "date": "2026-01-01",
+      "updatedAt": "2026-01-01"
+    }
+  ]
+}

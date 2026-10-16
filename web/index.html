@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="VRChatのことば、文化、出来事をみんなで編む辞典。検索・編集提案を試せるモックです。">
+<title>VRChat Dictionary — 知るほど、世界は広がる。</title>
+<link rel="stylesheet" href="styles.css"><script src="search.js" defer></script><script src="app.js" defer></script>
+</head>
+<body>
+<header class="header"><a class="brand" href="#"><span class="brand-mark">辞</span><span class="brand-name">VRChat<span class="brand-word">Dictionary</span></span><span class="badge">MOCK</span></a><nav aria-label="メイン"><a href="#" data-nav="all">辞典を探す</a><a href="#timeline" data-nav="timeline">年表から探す</a><a href="#proposals" data-nav="proposals">編集提案<span id="proposal-count"></span></a></nav><button class="button small" id="data-button">データ管理 <span aria-hidden="true">↗</span></button></header>
+<main id="app" tabindex="-1"><p class="notice" role="status">辞典データを読み込んでいます…</p></main>
+<footer><a href="#" class="footer-brand">VRChat Dictionary<span>VRChatの歴史・文化・ことばを、みんなで編む辞典</span></a><p>非公式・試作版 / 辞典シートのスナップショットを掲載しています。<br>編集・承認・CSV取込はこのブラウザー内だけに保存されます。Google・X認証、スプシの自動同期は未接続です。</p><button class="text-button" id="about-button">このモックについて ↗</button></footer>
+<dialog id="modal"><div class="modal-top"><span class="eyebrow" id="modal-eyebrow">EDIT</span><button class="icon-button" id="close-modal" aria-label="閉じる">×</button></div><div id="modal-body"></div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+</body></html>
+

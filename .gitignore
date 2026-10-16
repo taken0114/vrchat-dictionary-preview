@@ -1,0 +1,11 @@
+node_modules/
+dist/
+private-data/
+.env
+.env.*
+*.db
+*.sqlite
+*.csv
+*.xlsx
+*.log
+__pycache__/

@@ -1,0 +1,13 @@
+{
+  "name": "vrchat-dictionary-preview",
+  "version": "0.2.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node tests/search.test.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

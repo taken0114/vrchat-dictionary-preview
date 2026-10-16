@@ -1,0 +1,48 @@
+name: Publish dictionary preview
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Restore publication snapshot
+        env:
+          SNAPSHOT_0: ${{ secrets.DICTIONARY_SNAPSHOT_0 }}
+          SNAPSHOT_1: ${{ secrets.DICTIONARY_SNAPSHOT_1 }}
+          SNAPSHOT_2: ${{ secrets.DICTIONARY_SNAPSHOT_2 }}
+          SNAPSHOT_3: ${{ secrets.DICTIONARY_SNAPSHOT_3 }}
+          SNAPSHOT_4: ${{ secrets.DICTIONARY_SNAPSHOT_4 }}
+          SNAPSHOT_5: ${{ secrets.DICTIONARY_SNAPSHOT_5 }}
+          SNAPSHOT_6: ${{ secrets.DICTIONARY_SNAPSHOT_6 }}
+          SNAPSHOT_7: ${{ secrets.DICTIONARY_SNAPSHOT_7 }}
+          SNAPSHOT_8: ${{ secrets.DICTIONARY_SNAPSHOT_8 }}
+          SNAPSHOT_9: ${{ secrets.DICTIONARY_SNAPSHOT_9 }}
+          SNAPSHOT_10: ${{ secrets.DICTIONARY_SNAPSHOT_10 }}
+          SNAPSHOT_11: ${{ secrets.DICTIONARY_SNAPSHOT_11 }}
+        run: node scripts/restore-snapshot.mjs
+      - name: Verify and build
+        env:
+          DICTIONARY_DATA_FILE: private-data/snapshot.json
+        run: |
+          npm test
+          npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
